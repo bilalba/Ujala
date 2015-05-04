@@ -1,0 +1,15 @@
+%h1 Create New Worker
+
+= form_tag workers_path do
+
+  = label :worker, :name, 'Name'
+  = text_field :worker, 'name'
+
+  = label :worker, :skills, 'Skills'
+  = select :movie, :skills, ['Teacher','Gardener','Driver','Painter','Cook']
+
+  = label :worker, :age, 'Age'
+  = text_field :worker, 'age'
+
+  = submit_tag 'Save Changes'
+

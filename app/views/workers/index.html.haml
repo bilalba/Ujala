@@ -1,0 +1,17 @@
+%h1 All Workers
+
+%table#workers
+  %thead
+    %tr
+      %th Name
+      %th Age
+      %th Skills
+  %tbody
+    - @all_workers.each do |work|
+      %tr
+        %td= work.name
+        %td= work.age
+        %td= work.skills
+        %td= link_to "More about #{work.name}", worker_path(work)
+
+= link_to 'Add new worker', new_worker_path

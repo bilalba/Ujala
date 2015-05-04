@@ -1,4 +1,8 @@
 Ujala::Application.routes.draw do
+    resources :workers
+    root :to => 'workers#index'
+  # get "worker/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -56,3 +60,11 @@ Ujala::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 end
+
+
+# Rails.application.routes.draw do
+
+#   resources :articles
+
+
+# end

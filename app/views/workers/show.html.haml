@@ -1,0 +1,19 @@
+-# in app/views/movies/show.html.haml
+
+%h2 Details about #{@Worker.name}
+
+%ul#details
+  %li
+    Skills:
+    = @Worker.skills
+  %li
+    Age:
+    = @Worker.age
+
+%h3 Description:
+
+/ %p#description= @movie.description
+
+= link_to 'Edit', edit_worker_path(@Worker)
+= button_to 'Delete', worker_path(@Worker), :method => :delete, :confirm => 'Are you sure?'
+= link_to 'Back to movie list', worker_path

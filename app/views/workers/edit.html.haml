@@ -1,0 +1,15 @@
+-# in app/views/movies/edit.html.haml
+%h1 Edit Worker Information
+
+= form_tag worker_path(@Worker), :method => :put do
+
+  = label :worker, :name, 'Name'
+  = text_field :worker, 'name'
+
+  = label :worker, :skills, 'Skills'
+  = select :worker, :skills, ['Teacher','Gardener','Driver','Painter','Cook']
+
+  = label :worker, :age, 'Age'
+  = text_field :worker, 'age'
+
+  = submit_tag 'Save Changes'
