@@ -1,8 +1,8 @@
 # Add a declarative step here for populating the DB with movies.
 
-Given /the following wokers exist/ do |workers_table|
+Given /the following workers exist/ do |workers_table|
   workers_table.hashes.each do |workers|
-  Worker.create!(worker)
+  Worker.create!(workers)
   end
 end
 

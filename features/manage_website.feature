@@ -5,15 +5,24 @@ Feature: Manage my website
 	I want to add a workers with their details
 
 	Background:
-	Given the following movies exist:
-  | name                   	| tag 	| release_date |
-  | alice                 	| G     | 25-Nov-1992  |
-  | The Terminator          | R     | 26-Oct-1984  |
+	Given the following workers exist:
+  
+  | name                    | age 	 | skills 			|
+  | Aladdin                 | 12     | Teacher, Driver  |
+  | The Terminator          | 34     | Teacher, Driver  |
+  | When Harry Met Sally    | 32     | Teacher, Driver  |
+  | The Help                | 13  	 | Teacher, Driver  |
+  | Chocolat                | 16   	 | Teacher, Driver  |
+  | Amelie                  | 98     | Teacher, Driver  |
+  | 2001: A Space Odyssey   | 65     | Teacher, Driver  |
+  | The Incredibles         | 56     | Teacher, Driver  |
+  | Raiders of the Lost Ark | 73     | Teacher, Driver  |
+  | Chicken Run             | 72     | Teacher, Driver  |
 
 	Scenario: Add a worker
 	Given I am on the homepage
-	When I press the "add a new worker" button
-	Then I should be on "add a worker" page
+	When I follow "Add_new_worker"
+	Then I should be on add a worker
 	And I should see a text feild
 	And I append "bob" with it
 	And I should see a drop down menu

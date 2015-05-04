@@ -1,5 +1,5 @@
 class CreateWorkers < ActiveRecord::Migration
-  def change
+  def up
     create_table :workers do |t|
       t.string :name
       t.integer :age
@@ -9,5 +9,10 @@ class CreateWorkers < ActiveRecord::Migration
 
       t.timestamps
     end
+  end
+end
+
+def down
+    drop_table :movies
   end
 end

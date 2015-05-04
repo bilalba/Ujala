@@ -7,25 +7,25 @@ Feature: display list of workers sorted by different criteria
 Background: workers have been added to database
   
   Given the following workers exist:
-  | title                   | rating | release_date |
-  | Aladdin                 | G      | 25-Nov-1992  |
-  | The Terminator          | R      | 26-Oct-1984  |
-  | When Harry Met Sally    | R      | 21-Jul-1989  |
-  | The Help                | PG-13  | 10-Aug-2011  |
-  | Chocolat                | PG-13  | 5-Jan-2001   |
-  | Amelie                  | R      | 25-Apr-2001  |
-  | 2001: A Space Odyssey   | G      | 6-Apr-1968   |
-  | The Incredibles         | PG     | 5-Nov-2004   |
-  | Raiders of the Lost Ark | PG     | 12-Jun-1981  |
-  | Chicken Run             | G      | 21-Jun-2000  |
+  | name                    | age    | skills           |
+  | Aladdin                 | 12     | Teacher, Driver  |
+  | The Terminator          | 34     | Teacher, Driver  |
+  | When Harry Met Sally    | 32     | Teacher, Driver  |
+  | The Help                | 13     | Teacher, Driver  |
+  | Chocolat                | 16     | Teacher, Driver  |
+  | Amelie                  | 98     | Teacher, Driver  |
+  | 2001: A Space Odyssey   | 65     | Teacher, Driver  |
+  | The Incredibles         | 56     | Teacher, Driver  |
+  | Raiders of the Lost Ark | 73     | Teacher, Driver  |
+  | Chicken Run             | 72     | Teacher, Driver  |
 
-  And I am on the Ujala home page
+  And I am on the home page
 
 Scenario: sort workers alphabetically
   When I follow "Worker Names"
-  Then I should see "Alice" before "Bob"
-  And I should see "Bilal" before "Zayan"
+  Then I should see "Aladdin" before "The Terminator"
+  And I should see "Chicken Run" before "The Help"
 
-Scenario: sort movies in increasing order of ratings
-  When I follow "Ratings"
-  Then I should see "bob" before "alice"
+Scenario: sort movies in increasing order of age
+  When I follow "ages"
+  Then I should see "Aladdin" before "Amelie"

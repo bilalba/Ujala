@@ -18,6 +18,10 @@ class WorkersController < ApplicationController
   end
 
   	def destroy
+      @worker = Worker.find(params[:id])
+      @worker.destroy
+      flash[:notice] = "Worker '#{@worker.name}' deleted."
+      redirect_to workers_path
   	end 
 
   	def show
@@ -28,6 +32,6 @@ class WorkersController < ApplicationController
 	def create
     	@Worker = Worker.create!(params[:worker])
     	flash[:notice] = "#{@Worker.name} was successfully created."
-   		redirect_to workers_path(@worker)
+   		redirect_to workers_path
     end
 end
