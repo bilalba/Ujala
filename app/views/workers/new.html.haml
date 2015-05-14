@@ -6,7 +6,10 @@
   = text_field :worker, 'name'
 
   = label :worker, :skills, 'Skills'
-  = select :movie, :skills, ['Teacher','Gardener','Driver','Painter','Cook']
+  Include: 
+  - @all_skills.each do |r|
+    = r
+    = check_box_tag "skills[#{r}]", 1, :id => "skills_#{r}"
 
   = label :worker, :age, 'Age'
   = text_field :worker, 'age'

@@ -1,14 +1,17 @@
 -# in app/views/movies/edit.html.haml
 %h1 Edit Worker Information
 
-= form_tag worker_path(@Worker), :method => :put do
+= form_tag worker_path(@worker), :method => :put do
 
   = label :worker, :name, 'Name'
   = text_field :worker, 'name'
 
   = label :worker, :skills, 'Skills'
-  = select :worker, :skills, ['Teacher','Gardener','Driver','Painter','Cook']
-
+  Include: 
+  - @all_skills.each do |r|
+    = r
+    = check_box_tag "skills[#{r}]", 1, :id => "skills_#{r}"
+  
   = label :worker, :age, 'Age'
   = text_field :worker, 'age'
 
