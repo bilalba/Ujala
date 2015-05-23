@@ -25,18 +25,25 @@ end
 
 #  "When I uncheck the following ratings: PG, G, R"
 #  "When I check the following ratings: G"
-
 When /I (un)?check the following skills: (.*)/ do |uncheck, skills_list|
-      skills_list.split(',').each do |field|
-  if uncheck == "un"
-    step %Q{I uncheck "skills_#{field.strip}"}
-    step %Q{the "skills_#{field.strip}" checkbox should not be checked}  
-  else
-          step %Q{I check "skills_#{field.strip}"}
-    step %Q{the "skills_#{field.strip}" checkbox should be checked}  
-  end
+  # HINT: use String#split to split up the rating_list, then
+  #   iterate over the ratings and reuse the "When I check..." or
+  #   "When I uncheck..." steps in lines 89-95 of web_steps.rb
+  list = skills_list.split(",")
+  if uncheck   
+    list.each do |x|
+      x.strip! # removing whitespaces, because they give an error otherwise.
+      When %{I uncheck "skills_#{x}"}
     end
-end 
+  else
+    list.each do |x|
+      x.strip!
+       When %{I check "skills_#{x}"}
+    end
+  end
+
+  # flunk "Unimplemented"
+end
 # HINT: use String#split to split up the rating_list, then
   #   iterate over the ratings and reuse the "When I check..." or
   #   "When I uncheck..." steps in lines 89-95 of web_steps.rb

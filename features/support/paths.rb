@@ -15,6 +15,7 @@ module NavigationHelpers
 
     when /^the (Ujala  )?home\s?page$/
       '/'
+      '/workers'
     when /^the home page$/
       workers_path
 

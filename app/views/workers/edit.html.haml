@@ -10,9 +10,9 @@
   Include: 
   - @all_skills.each do |r|
     = r
-    = check_box_tag "skills[#{r}]", 1, :id => "skills_#{r}"
+    = check_box_tag "skills[#{r}]", value =1, checked = false, :id => "skills_#{r}"
   
   = label :worker, :age, 'Age'
   = text_field :worker, 'age'
 
-  = submit_tag 'Save Changes'
+  = submit_tag 'Save Changes', :id => "Save Changes"

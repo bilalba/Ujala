@@ -22,18 +22,18 @@ Feature: Manage my website
 	Scenario: Add a worker
 	Given I am on the homepage
 	When I follow "Add_new_worker"
-	When I fill in "worker_name" with "BOBBY"
-	And I should see a drop down menu
-	And I select a tag with "teacher"
-	And I press "back to main" button
+	And I fill in "worker_name" with "BOBBY"
+	And I check the following skills: Teacher, Driver
+	And I fill in "worker_age" with "22"
+	And I press "Save Changes"
 	Then I should be on the homepage
-	And I should see "bob" with tag "teacher"
+	And I should see "BOBBY"
 
 	Scenario: Set workers age
 	Given I am on the homepage
-	When I press on "more about alice" button
-	Then I should see a "more about alice" page
-	And I should see a "rating" field
-	When I append "9" with it
-	Then I should be on the main page
-	And I should see alice's rating as "9"
+	When I follow "More about Aladdin"
+	And I follow "Edit"
+	And I fill in "worker_age" with "9"
+	And I press "Save Changes"
+	Then I should be on the homepage
+	And I should see "9"

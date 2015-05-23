@@ -13,8 +13,15 @@ class WorkersController < ApplicationController
   	end
 
   	def update
+      abc = ""
+      params[:skills].each do |key, value|
+        abc = abc + "," + key
+      end
+      abc[0] = ''
     	@worker = Worker.find params[:id]
     	@worker.update_attributes!(params[:worker])
+      abc
+      @worker.update_attributes!(:skills => abc)
       if @selected_skills == {}
       @selected_skills = Hash[@all_skills.map {|skill| [skill, skill]}]
     end
@@ -39,6 +46,7 @@ class WorkersController < ApplicationController
       params[:skills].each do |key, value|
         abc = abc + "," + key
       end
+      abc[0] = ''
 
     	@Worker = Worker.create!(params[:worker])
       @Worker.update_attributes!(:skills => abc)
