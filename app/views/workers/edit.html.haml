@@ -10,7 +10,10 @@
   Include: 
   - @all_skills.each do |r|
     = r
-    = check_box_tag "skills[#{r}]", value =1, checked = false, :id => "skills_#{r}"
+    - if (@my_skills.include? r)
+      = check_box_tag "skills[#{r}]", value =1, checked = true, :id => "skills_#{r}"
+    - else
+      =  check_box_tag "skills[#{r}]", value =1, checked = false, :id => "skills_#{r}"
   
   = label :worker, :age, 'Age'
   = text_field :worker, 'age'

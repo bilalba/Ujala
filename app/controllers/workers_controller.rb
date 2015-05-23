@@ -10,6 +10,7 @@ class WorkersController < ApplicationController
   	def edit
       @all_skills = Worker.all_skills
       @worker = Worker.find params[:id]
+      @my_skills = @worker[:skills]
   	end
 
   	def update
